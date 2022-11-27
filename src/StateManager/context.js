@@ -2,7 +2,7 @@ import React, { createContext, useContext, useReducer } from 'react';
 import reducer from './reducer';
 
 const AppContext = createContext();
-const URL = "https://saman.onrender.com/"
+const URL = "https://samanbackend.onrender.com/"
 // const URL = "http://localhost:4000/"
 const initialState = {
     Userid: "",
