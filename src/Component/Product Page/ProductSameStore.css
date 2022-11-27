@@ -1,0 +1,27 @@
+.ProductSameStore{
+    margin: 2rem 0rem;
+    width: 80%;
+    padding: 2rem;
+    background-color: white;
+    width: 80%;
+        }
+
+.ProductSameStore__primary{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.ProductSameStore_products{
+    padding: 2rem 0rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 25rem);
+    place-content: center;
+    grid-gap: 2rem;
+}
+
+@media screen and (max-width:1160px) {
+    .ProductSameStore{
+        width: 90%;
+    }
+
+    
+    }

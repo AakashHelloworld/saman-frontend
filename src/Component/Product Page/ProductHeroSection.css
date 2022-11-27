@@ -1,0 +1,250 @@
+
+
+.ProductPage_section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eff0f5;
+}
+
+
+.ProductHeroSection{
+    width: 80%;
+    margin-top: 2rem;
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    background-color: white;
+}
+.ProductHeroSection_imageSection{
+    padding: 1rem;
+}
+.ProductHeroSection_detail{
+    padding: 1rem;
+}
+.ProductHeroSection_imageSection  img{
+    width: 100%;
+    height: 100%;
+}
+.product_name{
+    font-size: 1.7rem;
+    color: black;
+    font-weight: 700;
+}
+.product_price{
+    font-size: 3rem;
+    color: #f85606;
+}
+
+.inputtagNextPage{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.inputtagNextPage span{
+    font-size: 1.4rem;
+    color: var(--secondary);
+}
+.inputtagNextPage div input{
+    outline: none;
+    border: none;
+    padding: 2rem 0.5rem;
+    background-color: transparent;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.inputtagNextPage input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.inputtagNextPage input[type=number] {
+  -moz-appearance: textfield;
+}
+.inputtagNextPage div{
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+.inputtagNextPage div button{
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--ternary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ProductHeroSection_button{
+    display: flex;
+    gap: 2rem;
+}
+
+.ProductHeroSection_button button{
+    width: 22.5rem;
+    padding: 1rem 0rem;
+    font-size: 1.6rem;
+}
+.buy_button{
+    background-color: var(--primary);
+}
+.cart_button{
+    background-color: var(--secondary);
+    color: white;
+}
+
+.ProductHeroSection__delivery{
+    background-color: #fafafa;
+    position: relative;
+    transition: all .2s;
+}
+.locationmodel__container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #7575753a;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+.locationmodel{
+    height: 100%;
+    width: 80%;
+    background-color: white;
+    padding: 1rem;
+    cursor: pointer;
+
+}
+
+.locationmodel_off__icon{
+    text-align: start;
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.location__select{
+    width: 100%;
+    padding: 2rem;
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+    border: 2px solid var(--ternary);
+}
+option{
+    padding: 1rem;
+    margin-top: .4rem;
+    cursor: pointer;
+}
+
+.changelocation{
+    justify-self: end;
+    margin-right: 0;
+}
+
+
+.ProductHeroSection__delivery__container{
+    padding: 1rem;
+}
+.ProductHeroSection__delivery__container h3{
+    color: #757575;
+    font-size: 1.2rem;
+}
+
+.ProductHeroSection__delivery__detail__one{
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid #eff0f5;
+    padding: 1rem 0rem;
+}
+
+.delivery_icon{
+    font-size: 2.4rem;
+}
+
+.ProductHeroSection__delivery__detail__one p{
+    max-width: 17rem;
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    color: #202020;
+    }
+
+.ProductHeroSection__delivery__detail__one button{
+    background-color: transparent;
+    border: none;
+    color: var(--primary);
+    font-size: 1.5rem;
+
+}
+
+.visit_shop{
+    font-size: 1.6rem!important;
+    color: var(--quatery)!important;
+}
+
+
+
+/* Product description */
+
+.Product_description{
+    width: 80%;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: white;
+    }
+
+.Product_description_primary{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.Product_description__content{
+    padding: 1rem;
+}
+
+.Product_description__content p{
+    font-size: 1.5rem;
+}
+
+
+@media screen and (max-width:1160px) {
+    .Product_description{
+        width:90%
+    }
+
+
+    .ProductHeroSection{
+        width: 90%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+    .ProductHeroSection__delivery{
+        width: 100%;
+    }
+    .ProductHeroSection__delivery{
+        grid-Column: 1/3;
+    }
+
+}
+
+@media screen and (max-width:731px){
+    .ProductHeroSection{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap:2rem
+}
+
+}
+

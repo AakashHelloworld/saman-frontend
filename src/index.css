@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html{
+    font-size: 62%;
+    font-family: sans-serif;
+    color: rgb(62, 62, 62);
+  }
+
+  @media screen and (max-width: 1200px ){
+
+    html{
+    font-size: 62.5%;
+    }
+}
+
+  @media screen and (max-width: 900px ){
+    html{
+    font-size: 55%;
+    }
+  }
+@media screen and (max-width: 600px ){
+  html{
+    font-size: 50%;
+  }
+}
+
+
+  li{
+    list-style: none;
+  }
+  :root{
+    --quatery: rgb(30 64 175);
+    --primary: rgb(52 211 153);
+    --secondary: rgb(100 116 139);
+    --ternary: rgba(158,158,158,.2);
+}

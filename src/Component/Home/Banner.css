@@ -1,0 +1,58 @@
+:root {
+    --primary: rgb(52 211 153);
+    --secondary: rgb(100 116 139);
+    --ternary: rgba(158,158,158,.2);
+  }
+
+.banner__section{
+    background-image: url('../../Image//hero_image.PNG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 2.9;
+}
+
+@media screen and (max-width: 430px ){
+    .banner__section{
+    background-image: url('../../Image/hero_image_mobile.png');
+    aspect-ratio: 1.12;
+
+    }
+}
+
+.shop_now_container{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.shop_now_button{
+    background-color: var(--primary);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 2rem 2rem;
+    transition: .2s;
+    height: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shop_now_button:hover{
+    transform: translateY(-2px);
+}
+
+
+@media screen and (max-width: 1215px ){
+
+        
+    .Search_tag{
+            width: 30rem;
+    }
+    .banner__section{
+        background-size: contain;
+    }
+    
+            }

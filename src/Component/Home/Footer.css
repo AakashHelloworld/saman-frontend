@@ -1,0 +1,44 @@
+:root{
+    --quatery: rgb(20, 4, 90);
+}
+
+.footer__section{
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr;
+    background-color: var(--quatery);
+    color: white;
+    padding: 3rem;
+    padding-left: 10rem;
+}
+
+.first__detail h3, .second__detail h3{
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+.first__detail div p{
+    font-size: 1.2rem;
+}
+
+.third__detail img{
+    width: 20rem;
+    aspect-ratio: 1.6;
+}
+
+
+@media screen and (max-width:620px) {
+    .footer__section{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }}
+
+
+
+
+    @media screen and (max-width:620px) {
+        .third__detail{
+            display: none;
+        }
+
+
+    }

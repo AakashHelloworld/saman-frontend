@@ -1,0 +1,135 @@
+.orderSection{
+    background-color: #eff0f5;
+    display: flex;
+    justify-content: center;
+    min-height: 60vh;
+} 
+
+.orderHeroSection{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding-bottom: 3rem;
+    margin-top: 2rem;
+    width: 80%;
+    grid-gap: 3rem;
+}
+
+
+.orderHeroSection__container{
+    padding: 3rem;
+    background-color: white;
+}
+
+.checkoutSection{
+    padding: 3rem;
+    background-color: white;
+}
+
+.single__cart__quantity{
+    font-size: 1.4rem;
+}
+
+.order__delivery{
+    background-color: #fafafa;
+    position: relative;
+}
+.order__delivery__container{
+    padding: 1rem;
+}
+.order__delivery__container h3{
+    color: #757575;
+    font-size: 1.2rem;
+}
+
+.order__delivery__detail__one{
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid #eff0f5;
+    padding: 1rem 0rem;
+}
+
+.delivery_icon{
+    font-size: 2rem;
+}
+
+.order__delivery__detail__one p{
+    max-width: 17rem;
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    color: #202020;
+    }
+
+.order__delivery__detail__one button{
+    background-color: transparent;
+    border: none;
+    color: var(--primary);
+    font-size: 1.5rem;
+
+}
+
+.locationmodel__container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #7575753a;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+.locationmodel{
+    height: 100%;
+    width: 80%;
+    background-color: white;
+    padding: 1rem;
+    cursor: pointer;
+
+}
+
+.locationmodel_off__icon{
+    text-align: start;
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.location__select{
+    width: 100%;
+    padding: 2rem;
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+    border: 2px solid var(--ternary);
+}
+
+@media screen and (max-width:832px) {
+    
+    .orderHeroSection{
+        display: flex;
+        flex-direction: column;
+    }
+    }
+    
+    @media screen and (max-width:525px) {
+        .single__cart{
+            display: flex;
+            flex-direction: column;
+        }
+        .single__cart__detail{
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cartQuantityContainer{
+            width:fit-content ;
+        }
+        .cart__container{
+            align-self:flex-end;
+            margin-right: 2rem;
+        }
+    }

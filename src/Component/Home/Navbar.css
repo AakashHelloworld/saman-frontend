@@ -1,0 +1,106 @@
+:root {
+    --primary: rgb(52 211 153);
+    --secondary: rgb(100 116 139);
+    --ternary: rgba(158,158,158,.2)
+  }
+  
+.navbar{
+    width: 100%;
+}
+.navbar__top{
+background-color: var(--ternary) ;
+display: flex !important;
+justify-content: end !important;
+padding: .3rem 0;
+}
+.navbar__top a{
+    margin-right: 2.2rem;
+}
+
+.navbar__top a{
+    margin-right: 2.2rem;
+}
+.navbar__top a:hover{
+    color:var(--primary) ;
+}
+.navbar__bottom{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: grid;
+    padding: 1.2rem 0;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+.logo_container{
+    display: flex;
+    justify-content: end;
+    margin-right: 4rem;
+}
+.logo_container img{
+    width: 8rem;
+    aspect-ratio: 1.67;
+}
+.search_container{
+    display: flex;
+}
+.Search_tag{
+        padding: .5rem 1.6rem;
+        line-height: 1.4rem;
+        height: 4rem;
+        width: 50rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        font-family: inherit;
+        color: var(--secondary);
+        transition: border .3s ease;
+        background-color: var(--ternary);
+        outline: none;
+    }
+    .search_icon_button{
+        height: 4rem;
+        padding: 0 1rem;
+        background-color: var(--primary);
+    }
+    .search_icon{
+        font-size: 2rem;
+        color: white;
+    }
+    .cart_icon{
+        color: var(--secondary);
+        font-size: 3rem;
+        margin-left: 2rem;
+        }
+
+
+        @media screen and (max-width: 1215px ){       
+.Search_tag{
+        width: 30rem;
+}
+        }
+
+
+
+        @media screen and (max-width: 1215px ){       
+            .Search_tag{
+                    width: 30rem;
+            }
+                    }
+
+
+    @media screen and (max-width:470px) {
+    .logo_container{
+        display: none;
+    }   
+    
+    .navbar__bottom{
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width:323px){
+    .navbar__bottom{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

@@ -1,0 +1,140 @@
+.review__section{
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: white;
+    width: 80%;
+    }
+
+.review__section__primary{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.average_rating{
+    font-size: 5rem;
+    font-weight: 900;
+}
+.review__section__container{
+    display: flex;
+    gap:2rem;
+    margin-bottom: 2rem;
+}
+
+.average_rating span{
+    font-size: 3rem;
+    color:var(--ternary);
+}
+
+
+.review_primary_icons{
+    display: flex;
+    margin-top:1.3rem;
+
+}
+.review_primary_icon{
+    color: #faca51;
+    font-size: 1.4rem;
+}
+.average_no_rating{
+    font-size: 1.4rem;
+}
+.review_secondary_icons{
+    display: flex;
+}
+.review_secondary_icon{
+    color: #faca51;
+    font-size: 1rem!important;
+}
+
+.singleReview{
+    border: 2px solid var(--ternary);
+    padding: 1rem;
+    margin-bottom: .3rem;
+}
+
+.singleReview__primary{
+    font-size: 1.2rem;
+}
+.singleReview__secondary{
+    font-size: 1.7rem;
+}
+.review_load_container{
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+}
+.review_load_container button{
+    padding: 1rem 3rem;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    cursor: pointer;
+}
+.create_review{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+    border: 2px solid var(--ternary);
+    width: 40%;
+    justify-content: center;
+}
+.review_inputtag{
+    padding: 1rem 2rem;
+    outline: none;
+    font-size: 1.6rem;
+    border-bottom: 2px solid var(--primary);
+}
+
+
+.review__submit{
+    padding: 1rem 2rem;
+    border: 2px solid var(--primary);
+    font-size: 1.4rem;
+    display: inline;
+    color:var(--primary);
+}
+.create_icon{
+    font-size: 2.3rem;
+}
+
+.noreview{
+    font-size: 2rem;
+    text-align: center;
+}
+
+.singleReviewname_delete{
+    display: flex;
+    justify-content: space-between;
+}
+
+.review__delete{
+    border: none;
+    background-color: transparent;
+}
+.cartQuantity{
+    display: flex;
+    flex-direction: column;
+}
+.review__delete_icon{
+    color: Red;
+    font-size: 1.7rem;
+}
+
+@media screen and (max-width:1160px) {
+.review__section{
+    width: 90%;
+}
+
+}
+
+@media screen and (max-width:863px) {
+    .create_review{
+        width: 80%;
+    }
+}
+@media screen and (max-width:390px) {
+    .review__section__container{
+        flex-direction: column;
+    }
+    .create_review{
+        width: 100%;
+    }
+}
