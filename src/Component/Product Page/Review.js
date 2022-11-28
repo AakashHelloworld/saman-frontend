@@ -5,7 +5,7 @@ import {MdOutlineDelete} from "react-icons/md";
 import axios from "axios"
 import { useGlobalContext } from '../../StateManager/context';
 import {Star} from "../../Utils/Star"
-
+import {toast} from "react-toastify"
 
 const SingleReview = ({data, productid, shopid, setReviewCollection}) =>{
   console.log(productid ? "product" : "shop")
@@ -18,7 +18,17 @@ const SingleReview = ({data, productid, shopid, setReviewCollection}) =>{
           instance.delete(`${URL}api/v1/${productid ? "reviews":"shopreviews"}/delete/${data._id}/${productid ? productid : shopid}`).then((data)=>{
             console.log(data?.data?.data?.remainingReview)
             setReviewCollection(data?.data?.data?.remainingReview);
-          });
+          }).catch((err)=>{
+            toast.error(err.message, {
+              position: "top-right",
+              autoClose: 4000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              progress: 0,
+              theme: "light",
+              });
+          })
           dispatch({type: "Run_reducer", payload: "hello reducer"})
     }
 
@@ -40,11 +50,13 @@ const SingleReview = ({data, productid, shopid, setReviewCollection}) =>{
 
 const Review = ({review, productid, shopid}) => {
   const {URL} = useGlobalContext();
-  const [reviewCollection, setReviewCollection] = useState([])
+  const [reviewCollection, setReviewCollection] = useState(review)
   useEffect(()=>{
     setReviewCollection(review)
   }, [review])
+
     const [createReviewData , setCreateReviewData ] = useState({review:"", rating:5});
+
     const changeHandler =(e) =>{
         const name = e.target.name;
         const value = e.target.value;
@@ -62,9 +74,22 @@ const Review = ({review, productid, shopid}) => {
           if(productid){
           instance.post(`${URL}api/v1/products/${productid}/reviews`, createReviewData).then((data)=>{ 
             console.log(data?.data?.data, "hello world")
+            if(data?.data?.data?.newReview?.length){
             setReviewCollection(data?.data?.data?.newReview)    
-            setCreateReviewData({review:"", rating:5})     
-          });
+            }
+            setCreateReviewData({review:"", rating:5})   
+
+          }).catch((err)=>{
+              toast.error(err.message, {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                progress: 0,
+                theme: "light",
+                });
+          })
         }
         if(shopid){
             instance.post(`${URL}api/v1/shops/${shopid}/shopreviews`,createReviewData ).then((data)=>{ 

@@ -4,9 +4,7 @@ import {Link} from "react-router-dom"
 import axios from "axios"
 import {Star} from "../../Utils/Star"
 import { useGlobalContext } from '../../StateManager/context'
-
-
-
+import {Triangle} from "react-loader-spinner"
 
 const SingleProduct = ({data}) =>{
     return<div className='single_product'>
@@ -27,17 +25,22 @@ const SingleProduct = ({data}) =>{
 
 
 const TopFiveProducts = () => {
-    const {URL} = useGlobalContext();
+    const {URL, loading, setLoading} = useGlobalContext();
     const [topfive, setTopFive] = useState([]);
 
     const fetchdata = async()=>{
+        setLoading(true);
         const instance = await axios.create({
             withCredentials: true
         })
-          instance.get(`${URL}api/v1/products/topfive?sort=price&limit=5`).then((data)=>{
+    instance.get(`${URL}api/v1/products/topfive?sort=price&limit=5`).then((data)=>{
             setTopFive(data.data.data.products)
+            setLoading(false)
             console.log(data.data.data.products)
-    })}
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
 
 
     useEffect(()=>{
@@ -49,12 +52,27 @@ const TopFiveProducts = () => {
     <div className='home_products'>
     <h3 className='BestProduct_primary'>Best Products</h3>
     <div className='home_products_container'>
-            { !!topfive.length &&
+          { !loading ?
+            <>
+            { !!topfive?.length &&
                 topfive?.map((data)=>{
                     return<SingleProduct key={data._id}  data={data}/>
                 })
 
             }
+            </> :
+            <div style={{display:'flex', justifyContent: 'center'}}>
+            <Triangle
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="triangle-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+            />
+            </div>
+          }
     </div>
     </div>
   )

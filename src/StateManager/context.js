@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer, useState } from 'react';
 import reducer from './reducer';
 
 const AppContext = createContext();
@@ -18,8 +18,9 @@ const initialState = {
 };
 
 const AppProvider = ({ children }) => {
+  const [loading, setLoading] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
-  return <AppContext.Provider value={{ ...state, dispatch, URL }}>{children}</AppContext.Provider>;
+  return <AppContext.Provider value={{ ...state, dispatch, URL,loading,setLoading }}>{children}</AppContext.Provider>;
 };
 
 const useGlobalContext = () => {
