@@ -2,37 +2,20 @@ import React, {useState, useEffect} from 'react'
 import "./ProductSameStore.css"
 import { AiFillStar } from 'react-icons/ai'
 import axios from "axios"
-
+import {Star} from "../../Utils/Star"
+import { Link } from 'react-router-dom'
 const SingleProduct = ({data}) =>{
-    const star =(num)=>{
-        if(num == 1){
-            return <div className='product_icons'><AiFillStar className='product_icon'/></div>
-    
-        }else if(num == 2){
-            return<div className='product_icons'><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/></div>
-    
-        }else if(num ==3){
-            return <div className='product_icons'><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/></div>
-    
-        }else if(num ==4){
-            return <div className='product_icons'><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/></div>
-    
-        }else if(num==5){
-            return <div className='product_icons'><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/><AiFillStar className='product_icon'/></div>
-    
-        }
-    }
     return<div className='single_product'>
+    <Link to={`/product/${data._id}`}>
             <div className='product_image'>
                 <img src={data.image} />
             </div>
             <div className='product_detail'>
                 <h2 className='product_name'>{data.name.length > 50 ? data.name.slice(0, 50) + "..." :data.name }</h2>
                 <h3 className='product_price'>{`RS:${data.price}`}</h3>
-                {
-                    star(data?.stock)
-                }
+               =<Star num={5} />
             </div>
+            </Link>
          </div>
 }
 

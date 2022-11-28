@@ -4,8 +4,9 @@ import axios from "axios"
 import { ImCross } from 'react-icons/im'
 import {toast } from "react-toastify"
 import { useGlobalContext } from '../StateManager/context'
+import {Audio} from "react-loader-spinner"
 export const LogIn = () => {
-  const {URL} = useGlobalContext();
+  const {URL, setLoading, loading} = useGlobalContext();
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
                                           Email:"",
@@ -25,22 +26,25 @@ export const LogIn = () => {
     const instance = await axios.create({
       withCredentials: true
     })
+    setLoading(true)
     instance.post(`${URL}api/v1/users/login`,loginData ).then((data)=>{
       console.log(data)
       toast.success('Login Sucessfully', {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 4000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         progress: 0,
         theme: "light",
         });
+        setLoading(false)
       navigate("/");
     }).catch((err)=>{
-      toast.success(err.message, {
+      setLoading(false)
+      toast.error(err.message, {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 4000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -68,7 +72,19 @@ export const LogIn = () => {
 
           <input type="password" onChange={(e)=> changeHandler(e)} name='Password' className='login__form__input' placeholder='Password' />
 
-          <button onClick={loginHandler} className='login__submit'>LOGIN</button>
+          <button onClick={loginHandler} className='login__submit'>
+          { !loading ?"LOGIN" : (
+            <Audio
+                height="20"
+                width="30"
+                radius="9"
+                color="white"
+                ariaLabel="loading"
+                wrapperStyle
+                wrapperClass
+              />
+          )}
+          </button>
           </form>
     </div>
     </div>

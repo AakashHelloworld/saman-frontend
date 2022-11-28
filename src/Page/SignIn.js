@@ -4,10 +4,12 @@ import axios from "axios"
 import {ImCross} from "react-icons/im"
 import {toast } from "react-toastify"
 import "./loginsignup.css"
+import {Audio} from "react-loader-spinner"
+
 import { useGlobalContext } from '../StateManager/context'
 axios.defaults.withCredentials = true;
 export const SignIn = () => {
-  const {URL} = useGlobalContext();
+  const {URL, loading, setLoading} = useGlobalContext();
   const navigate = useNavigate();
   const [signindata, setSignindata] = useState({Username:"", Email:"", Password:"", ConfirmPassword:""});
 
@@ -22,11 +24,13 @@ const changeHandler = (e) =>{
 
 const submitHandler = async (e) =>{
     e.preventDefault();
+    setLoading(true)
     const instance = await axios.create({
       withCredentials: true,
       headers: {authorization: "Bearer"}
     })
     instance.post(`${URL}api/v1/users/signup`,signindata ).then((data)=>{
+      setLoading(false)
       toast.success('SignUp Sucessfully', {
         position: "top-right",
         autoClose: 2000,
@@ -38,6 +42,7 @@ const submitHandler = async (e) =>{
         });
       navigate("/")
     }).catch((err)=>{
+      setLoading(false)
       toast.error(err.message, {
         position: "top-right",
         autoClose: 2000,
@@ -73,7 +78,19 @@ const submitHandler = async (e) =>{
 
           <input type="password" onChange={(e)=> changeHandler(e)} name='ConfirmPassword' className='login__form__input' placeholder='Confirm Password' />
 
-          <button onClick={submitHandler} className='login__submit'>SIGNUP</button>
+          <button onClick={submitHandler} className='login__submit'>
+          { !loading ?"SIGNUP":(
+            <Audio
+                height="20"
+                width="30"
+                radius="9"
+                color="white"
+                ariaLabel="loading"
+                wrapperStyle
+                wrapperClass
+              />
+          )}
+          </button>
           </form>
     </div>
     </div>
